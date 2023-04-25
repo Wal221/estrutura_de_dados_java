@@ -6,7 +6,7 @@ public class ListaLigada {
 
     private int totalElementos;
 
-    public void adicionarNocomeço(Object elemento){
+    public void adicionarNocomeco(Object elemento){
         No nova = new No(this.primeira,elemento);
         this.primeira = nova;
         if( this.totalElementos == 0){
@@ -17,9 +17,12 @@ public class ListaLigada {
         this.totalElementos ++;
 
     }
+
+
+
     public void adicionar(Object elemento){
         if(totalElementos == 0){
-            this.adicionarNocomeço(elemento);
+            this.adicionarNocomeco(elemento);
         }else{
             No novo = new No(elemento);
             //se a lista não estiver vazia eu faço o ultimo elemento inserido
@@ -31,5 +34,26 @@ public class ListaLigada {
             this.totalElementos++;
         }
 
+
+
+    }
+
+    @Override
+    public String toString() {
+        if(this.totalElementos == 0){
+            return "";
+
+        }
+        StringBuilder builder  = new StringBuilder();
+        No atual =primeira;
+
+        for (int i = 0; i < this.totalElementos -1  ; i++) {
+            builder.append(atual.getElemento());
+            builder.append(", ");
+            atual = atual.getProxima();
+        }
+        builder.append(atual.getElemento());
+
+        return builder.toString();
     }
 }
