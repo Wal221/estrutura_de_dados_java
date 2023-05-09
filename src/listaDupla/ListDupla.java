@@ -67,17 +67,36 @@ public class ListDupla {
      * ou seja não foi encontrado
      *
      */
-    public String busca(String name){
+    public No busca(String elemento){
         No busca = this.primeiro;
 
         for(int i = 0; i < this.cont; i++){
-            if(busca.getElemento().equalsIgnoreCase(name)){
+            if(busca.getElemento().equalsIgnoreCase(elemento)){
 
-                return busca.getElemento();
+                return busca;
             }
             busca = busca.getProximo();
         }
         return null;
+
+    }
+    public void numberLista(){
+        System.out.println(this.cont);
+    }
+
+    public void excluir(String elemento){
+        No excluir = busca(elemento);
+        if(cont == 0){
+            System.out.println("lista vazia");
+        }
+        if(excluir.getAnterior() == null){
+            cont --;
+           this.primeiro.getProximo().setAnterior(null);
+           this.primeiro = excluir.getProximo();
+
+        } else {
+
+        }
 
     }
 }
