@@ -11,6 +11,10 @@ public class Teste {
 
         System.out.println(list.busca("iza"));
         System.out.println(list);
+        list.numberLista();
+        list.excluir("iza");
+        System.out.println(list);
+
 
     }
 }

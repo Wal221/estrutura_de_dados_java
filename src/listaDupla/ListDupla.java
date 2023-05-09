@@ -91,12 +91,18 @@ public class ListDupla {
         }
         if(excluir.getAnterior() == null){
             cont --;
-           this.primeiro.getProximo().setAnterior(null);
-           this.primeiro = excluir.getProximo();
+           excluir.getProximo().setAnterior(null);
+           excluir = primeiro.getProximo();
 
         } else {
+            cont--;
+            excluir.getAnterior().setProximo(excluir.getProximo());
+            excluir.getProximo().setAnterior(excluir.getAnterior());
+            excluir = excluir.getProximo();
 
         }
+
+
 
     }
 }
