@@ -9,6 +9,7 @@ public class Teste {
         list.adicionar("iza");
         list.adicionar("Salviano");
 
+        System.out.println(list.busca("iza"));
         System.out.println(list);
 
     }

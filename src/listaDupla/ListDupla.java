@@ -60,4 +60,24 @@ public class ListDupla {
         return builder.toString();
 
     }
+
+    /**
+     * Esse metodo busca na lista de elementos de acordo com o nome inserido
+     * Caso ele não encontre o nome, significa que o nome presente não a na lista
+     * ou seja não foi encontrado
+     *
+     */
+    public String busca(String name){
+        No busca = this.primeiro;
+
+        for(int i = 0; i < this.cont; i++){
+            if(busca.getElemento().equalsIgnoreCase(name)){
+
+                return busca.getElemento();
+            }
+            busca = busca.getProximo();
+        }
+        return null;
+
+    }
 }
