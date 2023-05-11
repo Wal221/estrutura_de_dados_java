@@ -6,16 +6,13 @@ public class testarLista {
 
 
         lista.adicionar("walmir");
-        lista.adicionar(1);
-        lista.adicionar("valdir");
-        lista.adicionar("walmir");
-        lista.adicionar("juca");
-        lista.adicionar("valdir");
 
         System.out.println( lista);
 
 
-        System.out.println( lista.getposicao(1));
+        System.out.println( lista.getposicao(0));
+
+        System.out.println( lista);
 
     }
 }

@@ -65,7 +65,6 @@ public class ListDupla {
      * Esse metodo busca na lista de elementos de acordo com o nome inserido
      * Caso ele não encontre o nome, significa que o nome presente não a na lista
      * ou seja não foi encontrado
-     *
      */
     public No busca(String elemento){
         No busca = this.primeiro;
@@ -88,17 +87,31 @@ public class ListDupla {
         No excluir = busca(elemento);
         if(cont == 0){
             System.out.println("lista vazia");
+            return;
         }
-        if(excluir.getAnterior() == null){
-            cont --;
-           excluir.getProximo().setAnterior(null);
-           excluir = primeiro.getProximo();
+        else if(excluir.getAnterior() == null && excluir.getProximo() == null){
 
-        } else {
-            cont--;
+            excluir = null;
+
+        }
+         if(excluir.getAnterior() == null){
+          // excluir.getProximo().setAnterior(excluir.getAnterior());
+            excluir = excluir.getProximo();
+            cont --;
+
+
+        }else if(excluir.getProximo() == null){
+
+            excluir.getAnterior().setProximo(excluir.getProximo());
+
+             cont --;
+
+        }
+        else {
             excluir.getAnterior().setProximo(excluir.getProximo());
             excluir.getProximo().setAnterior(excluir.getAnterior());
             excluir = excluir.getProximo();
+             cont --;
 
         }
 
