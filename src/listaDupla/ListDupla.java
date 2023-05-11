@@ -44,7 +44,7 @@ public class ListDupla {
     @Override
     public String toString() {
         if(this.cont == 0){
-            return "";
+            return " ";
 
         }
         StringBuilder builder = new StringBuilder();
@@ -89,25 +89,33 @@ public class ListDupla {
             System.out.println("lista vazia");
             return;
         }
-        else if(excluir.getAnterior() == null && excluir.getProximo() == null){
 
-            excluir = null;
-
-        }
-         if(excluir.getAnterior() == null){
-          // excluir.getProximo().setAnterior(excluir.getAnterior());
-            excluir = excluir.getProximo();
+          //se ouver somente um elemento na lista sera removido
+         if(excluir.getAnterior() == null && excluir.getProximo() == null){
+            this.primeiro = null;
+            this.ultimo = null;
             cont --;
 
+        }
+         //remove o primeiro elemento
+         else if(excluir.getAnterior() == null){
+             this.primeiro = this.primeiro.getProximo();
+             this.primeiro.setAnterior(null);
+             this.cont --;
 
-        }else if(excluir.getProximo() == null){
 
-            excluir.getAnterior().setProximo(excluir.getProximo());
+        }//remove o ultimo elemento
+         else if(excluir.getProximo() == null){
 
+          this.ultimo = this.ultimo.getAnterior();
+          //vale ressaltar que essa forma de fazer o elemento aponta para o anterior , e equivalente a
+             //fazer a elemento aponta para o null , ja que e o ultimo elemento
+           this.ultimo.setProximo(excluir.getProximo());
              cont --;
 
         }
         else {
+            //para remover um elemento do meio da lista
             excluir.getAnterior().setProximo(excluir.getProximo());
             excluir.getProximo().setAnterior(excluir.getAnterior());
             excluir = excluir.getProximo();
