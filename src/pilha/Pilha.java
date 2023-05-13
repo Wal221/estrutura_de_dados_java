@@ -27,6 +27,15 @@ public class Pilha {
         this.cont++;
 
     }
+     public void excluir(){
+
+        if(cont == 0){
+            System.out.println("lista vazia!! ");
+
+        }
+        this.ultimo = null;
+         cont --;
+     }
 
     @Override
     public String toString() {

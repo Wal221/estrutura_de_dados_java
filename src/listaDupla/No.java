@@ -5,6 +5,10 @@ public class No {
     private No proximo;
     private String elemento;
 
+    public No(){
+
+    }
+
     public No( String elemento) {
         this.elemento = elemento;
     }
