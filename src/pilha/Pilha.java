@@ -32,9 +32,15 @@ public class Pilha {
         if(cont == 0){
             System.out.println("lista vazia!! ");
 
+        }else if(this.primeira == this.ultimo){
+            this.primeira = null;
+            this.ultimo = primeira;
+            cont --;
         }
-        this.ultimo = null;
-         cont --;
+        else {
+            this.ultimo = null;
+            cont--;
+        }
      }
 
     @Override
